@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: mithila-go-poc
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: DB_URL
+        value: jdbc:h2:file:./data/mithila-go;DB_CLOSE_ON_EXIT=FALSE;WRITE_DELAY=0
+      - key: JPA_DDL_AUTO
+        value: update

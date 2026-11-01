@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Mithila Go - Next-Gen Ride Hailing</title>
+    <!-- FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=20261101-3">
+</head>
+<body>
+
+    <!-- Main Application Shell -->
+    <div class="app-container" id="appContainer">
+        
+        <!-- ================= VIEW 1: ROLE SELECTION LANDING ================= -->
+        <section class="portal-view active" id="roleSelectView">
+            <div class="portal-landing-content">
+                <header class="landing-topline">
+                    <div class="landing-brand-mark"><i class="fa-solid fa-location-arrow"></i></div>
+                    <span>MITHILA GO</span>
+                    <span class="landing-city"><i class="fa-solid fa-location-dot"></i> <span data-en="Made for Mithila" data-hi="मिथिला के लिए">Made for Mithila</span></span>
+                    <button class="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
+                </header>
+
+                <div class="landing-grid">
+                    <div class="landing-copy">
+                        <span class="landing-eyebrow" data-en="WELCOME TO MITHILA GO" data-hi="मिथिला गो में आपका स्वागत है">WELCOME TO MITHILA GO</span>
+                        <h1><span data-en="Your next ride" data-hi="आपकी अगली सवारी">Your next ride</span><br><span data-en="starts here." data-hi="यहाँ से शुरू।">starts here.</span></h1>
+                        <p data-en="A simpler way to move around Mithila. Sign in to continue, or create an account to get started." data-hi="मिथिला में सफ़र का आसान तरीका। जारी रखने के लिए साइन इन करें या नया खाता बनाएँ।">A simpler way to move around Mithila. Sign in to continue, or create an account to get started.</p>
+                        <div class="landing-highlights">
+                            <span><i class="fa-solid fa-location-crosshairs"></i> <span data-en="Local routes" data-hi="स्थानीय रास्ते">Local routes</span></span>
+                            <span><i class="fa-solid fa-shield-heart"></i> <span data-en="Rides with care" data-hi="सुरक्षित सफ़र">Rides with care</span></span>
+                        </div>
+                    </div>
+
+                    <div class="landing-choice">
+                        <div class="landing-choice-heading">
+                            <span data-en="GET STARTED" data-hi="शुरू करें">GET STARTED</span>
+                            <h2 data-en="Choose your portal" data-hi="अपना पोर्टल चुनें">Choose your portal</h2>
+                        </div>
+                        <div class="role-cards-flex">
+                            <button class="role-card" id="selectUserRoleBtn" type="button">
+                                <span class="role-icon rider-icon"><i class="fa-solid fa-user-shield"></i></span>
+                                <span class="role-card-copy"><strong data-en="Rider Portal" data-hi="यात्री पोर्टल">Rider Portal</strong><small data-en="Find a ride for wherever the day takes you." data-hi="अपने गंतव्य के लिए सवारी खोजें।">Find a ride for wherever the day takes you.</small></span>
+                                <i class="fa-solid fa-arrow-right role-arrow" aria-hidden="true"></i>
+                            </button>
+                            <button class="role-card" id="selectDriverRoleBtn" type="button">
+                                <span class="role-icon driver-icon"><i class="fa-solid fa-id-card-clip"></i></span>
+                                <span class="role-card-copy"><strong data-en="Driver Portal" data-hi="ड्राइवर पोर्टल">Driver Portal</strong><small data-en="Go online, meet new passengers, earn on your terms." data-hi="ऑनलाइन होकर यात्रियों से जुड़ें और कमाएँ।">Go online, meet new passengers, earn on your terms.</small></span>
+                                <i class="fa-solid fa-arrow-right role-arrow" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <p class="landing-footnote"><i class="fa-solid fa-circle-check"></i> <span data-en="A smoother way to move through your day" data-hi="आपके दिन के सफ़र का आसान तरीका">A smoother way to move through your day</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 2: AUTHENTICATION (LOGIN & SIGNUP) ================= -->
+        <section class="portal-view" id="authView">
+            <header class="auth-header">
+                <button class="back-btn" id="backToRoleBtn" aria-label="Go Back"><i class="fa-solid fa-arrow-left"></i></button>
+                <h3 id="authTitle">Authentication</h3>
+            </header>
+            
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab-btn active" id="tabLoginBtn" data-en="Sign In" data-hi="साइन इन करें">Sign In</button>
+                    <button class="auth-tab-btn" id="tabSignupBtn" data-en="Create Account" data-hi="खाता बनाएँ">Create Account</button>
+                </div>
+
+                <!-- Sign In Form -->
+                <div class="auth-form-box active" id="loginFormBox">
+                    <div class="input-group">
+                        <span class="input-label" id="loginIdLabel" data-en="PHONE OR EMAIL" data-hi="फ़ोन या ईमेल">PHONE OR EMAIL</span>
+                        <input type="text" id="loginId" placeholder="Email or phone number" autocomplete="username" required>
+                        <button class="password-toggle" id="loginIdToggle" type="button" data-toggle-password="loginId" aria-label="Show sign-in ID" hidden>Show</button>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-label" data-en="PASSWORD" data-hi="पासवर्ड">PASSWORD</span>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password" required>
+                        <button class="password-toggle" type="button" data-toggle-password="loginPassword" aria-label="Show password">Show</button>
+                    </div>
+                    <button class="btn-primary" id="submitLoginBtn" data-en="Sign In" data-hi="साइन इन करें" style="width: 100%; margin-top: 6px;">Sign In</button>
+                </div>
+
+                <!-- Registration Form -->
+                <div class="auth-form-box" id="signupFormBox">
+                    <div id="dynamicSignupFields"></div>
+                    <button class="btn-primary" id="submitSignupBtn" data-en="Complete Registration" data-hi="पंजीकरण पूरा करें" style="width: 100%; margin-top: 8px;">Complete Registration</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 3: DRIVER CONTROL DASHBOARD ================= -->
+        <section class="portal-view" id="driverDashboardView">
+            <header class="header">
+                <div class="logo-container">
+                    <div class="logo-circle"><i class="fa-solid fa-gauge-high"></i></div>
+                    <span class="logo-text">DRIVER HUB</span>
+                </div>
+                <div class="driver-online-toggle-wrap">
+                    <button class="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
+                    <span id="onlineStatusText" class="offline">OFFLINE</span>
+                    <label class="switch" style="transform: scale(0.7);">
+                        <input type="checkbox" id="driverOnlineToggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <button class="profile-btn" id="driverProfileBtn" title="Edit your profile" aria-label="Edit your profile"><i class="fa-regular fa-user"></i></button>
+                <button class="profile-btn" id="driverLogoutBtn" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </header>
+
+            <div class="section-header-box">
+                <h2>Incoming Dispatch Radar</h2>
+                <p>Accept nearby requests to fulfill rides</p>
+            </div>
+
+            <div id="driverMap" class="driver-live-map" aria-label="Driver and ride pickup map"></div>
+            <p id="driverMapStatus" class="map-route-status" aria-live="polite"></p>
+
+            <div class="driver-rides-list" id="driverIncomingList">
+                <p class="empty-state">Sign in to see ride requests.</p>
+            </div>
+            <h3 class="section-title" id="scheduledDriverHeading">Scheduled rides
+                <span class="scheduled-reminder" id="scheduledRideReminder" hidden>
+                    <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                    <span id="scheduledRideReminderText"></span>
+                </span>
+            </h3>
+            <div class="driver-rides-list" id="driverScheduledList">
+                <p class="empty-state">No scheduled rides.</p>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 4: RIDER MAIN APP CONTAINER ================= -->
+        <div class="portal-view" id="userMainApp" style="flex-direction: column;">
+            
+            <!-- Side Navigation Drawer -->
+            <div class="drawer-overlay" id="drawerOverlay"></div>
+            <aside class="side-drawer" id="sideDrawer">
+                <div class="drawer-header">
+                    <div class="logo-container">
+                        <div class="logo-circle" style="width:22px; height:22px; font-size:10px;"><i class="fa-solid fa-location-arrow"></i></div>
+                        <span class="logo-text" style="font-size:15px;">MITHILA GO</span>
+                    </div>
+                    <button class="close-drawer-btn" id="closeDrawerBtn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <ul class="drawer-menu-list">
+                    <li class="drawer-item active" data-view="home"><i class="fa-solid fa-car-side"></i><span>Book Ride</span></li>
+                    <li class="drawer-item" data-view="rides"><i class="fa-regular fa-clock"></i><span>Ride History</span></li>
+                    <li class="drawer-item" data-view="settings"><i class="fa-solid fa-gear"></i><span>App Settings</span></li>
+                    <li class="drawer-item" data-view="support"><i class="fa-solid fa-headset"></i><span>Safety & Support</span></li>
+                </ul>
+                <div class="drawer-footer">
+                    <div class="drawer-footer-links"><a href="#" class="terms-link">Privacy & Policy</a><span>v2.4.0</span></div>
+                </div>
+            </aside>
+
+            <!-- Top Header Navbar -->
+            <header class="header">
+                <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+                <div class="logo-container" id="homeLogoBtn">
+                    <div class="logo-circle"><i class="fa-solid fa-location-arrow"></i></div>
+                    <span class="logo-text">MITHILA GO</span>
+                </div>
+                <button class="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
+                <button class="profile-btn" id="profileBtn"><i class="fa-regular fa-user"></i></button>
+            </header>
+
+            <main class="main-content">
+                <!-- Home Booking View -->
+                <section class="view-section active" id="homeView">
+                    <div class="ride-form">
+                        <div class="input-group">
+                            <span class="input-label">PICKUP LOCATION</span>
+                            <input type="text" id="pickupInput" placeholder="Search Madhubani or Mithila locations" value="" autocomplete="off" required>
+                            <small class="location-status" id="locationStatus">Choose a pickup address or a suggested location.</small>
+                            <button class="btn-outline" id="useMyLocationBtn" type="button">Use my current location</button>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-label">DESTINATION DROP</span>
+                            <input type="text" id="dropInput" placeholder="Search Madhubani or Mithila locations" autocomplete="off">
+                        </div>
+                        <div class="input-group dropdown-group" id="whenDropdown">
+                            <span class="input-label">TRIP TIMING</span>
+                            <div class="dropdown-selected">
+                                <span id="selectedTime">Leave Now</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-menu" id="timeMenu">
+                                <div class="dropdown-item active" data-value="Leave Now">Leave Now</div>
+                                <div class="dropdown-item" data-value="Schedule for later">Schedule for later</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location Suggestion Dropdown -->
+                    <div class="suggestions-box" id="suggestionsBox" style="display: none;" role="listbox" aria-label="Suggested pickup and destination locations"></div>
+                    <small class="location-attribution">Location results by OpenStreetMap contributors.</small>
+
+                    <!-- Dynamic Cab Categories -->
+                    <div class="cab-options-container" id="cabOptionsContainer" style="display: none;">
+                        <h4 class="section-title">Select Vehicle Tier</h4>
+                        <div class="cab-list" id="cabList"></div>
+                        <button class="btn-primary" id="bookRideBtn" disabled>Choose Destination First</button>
+                        <small id="fareEstimateLabel" class="fare-estimate-label" aria-live="polite"></small>
+                    </div>
+                </section>
+
+                <!-- Dispatch Radar Scanning View -->
+                <section class="view-section" id="assigningView">
+                    <div class="assigning-card">
+                        <div class="radar-animation"><i class="fa-solid fa-radar pulse-icon"></i></div>
+                        <h3>Broadcasting to nearby captains...</h3>
+                        <p style="font-size: 12px; color: #666; margin-top: 6px;">Sending your request to online drivers for this vehicle.</p>
+                        <button class="btn-outline" id="cancelSearchBtn" style="margin-top: 24px;">Cancel Request</button>
+                        <button class="btn-primary" id="retryRideBtn" type="button" hidden style="margin-top: 12px;">Try another vehicle</button>
+                    </div>
+                </section>
+
+                <!-- Active Ongoing Trip Tracking View -->
+                <section class="view-section" id="activeRideView">
+                    <div id="rideCompletedBanner" class="ride-completed-banner" hidden>
+                        <span class="completed-check">✓</span>
+                        <strong>Ride completed</strong>
+                        <p id="rideCompletedDetails"></p>
+                    </div>
+                    <div class="active-ride-card">
+                        <div class="ride-status-banner" id="rideStatusPanel" data-status="assigned">
+                            <span class="ride-status-icon" aria-hidden="true"><i class="fa-solid fa-car-side" id="tripLiveIcon"></i><span class="ride-status-pulse"></span></span>
+                            <div class="ride-status-copy">
+                                <span class="ride-status-eyebrow" id="tripLiveLabel">DRIVER ASSIGNED</span>
+                                <strong id="tripLiveStatus" aria-live="polite">Your driver accepted the ride</strong>
+                                <p id="tripLiveDetail">Waiting for the driver to share a live location.</p>
+                            </div>
+                        </div>
+                        <div id="activeRideMap" class="active-ride-map" aria-label="Live driver location and ride route"></div>
+                        <p class="active-map-notice" id="activeMapNotice" role="status" hidden></p>
+                        <div class="otp-payment-row">
+                            <div class="otp-box-inline"><span>TRIP OTP:</span> <strong id="activeRideOtp" style="color:#ff5722; font-size: 15px;">----</strong></div>
+                        </div>
+                        <div class="driver-info-box">
+                            <div class="driver-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                            <div class="driver-details">
+                                <h4 id="activeDriverName">Driver assigned</h4>
+                                <p id="activeCarInfo">Vehicle details will appear here</p>
+                            </div>
+                        </div>
+                        <div class="fare-display-box">
+                            <span>Trip Fare</span>
+                            <h3 id="activeFareText">₹—</h3>
+                        </div>
+                        <div class="action-buttons-flex">
+                            <button class="btn-outline" id="emergencySOSBtn" style="color:#c0392b; border-color:#c0392b;">SOS Emergency</button>
+                            <button class="btn-outline" id="cancelRideBtn">Cancel Ride</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Rider Past History View -->
+                <section class="view-section" id="ridesView">
+                    <div class="section-header-box">
+                        <h2>Your Ride Log</h2>
+                        <p>Complete record of past journeys</p>
+                    </div>
+                    <div class="rides-history-list" id="ridesHistoryList"></div>
+                </section>
+
+                <!-- Application Settings View -->
+                <section class="view-section" id="settingsView">
+                    <div class="section-header-box">
+                        <h2>Preferences</h2>
+                        <p>Customize your app experience</p>
+                    </div>
+                    <div class="settings-list">
+                        <div class="setting-item">
+                            <div class="setting-info"><i class="fa-solid fa-moon"></i><div><h4>Dark Mode UI</h4><p>Toggle high-contrast night theme</p></div></div>
+                            <label class="switch"><input type="checkbox" id="darkModeToggle"><span class="slider round"></span></label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info"><i class="fa-solid fa-bell"></i><div><h4>Audio Alerts</h4><p>Chimes for driver arrival status</p></div></div>
+                            <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Support View -->
+                <section class="view-section" id="supportView">
+                    <div class="section-header-box">
+                        <h2>Support Center</h2>
+                        <p>We are online 24/7 to help resolve queries</p>
+                    </div>
+                    <div class="support-options">
+                        <button class="support-card" data-support="agent" type="button">
+                            <i class="fa-solid fa-headset"></i>
+                            <div><h4>Live Agent Assistance</h4><p>Chat or speak directly with support</p></div>
+                        </button>
+                        <button class="support-card" data-support="safety" type="button">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <div><h4>Safety Guarantee Policy</h4><p>Insurance coverage details & helplines</p></div>
+                        </button>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- ================= OVERLAYS & MODALS ================= -->
+
+        <!-- Rider Account Profile Modal -->
+        <div class="profile-modal-overlay" id="profileModalOverlay"></div>
+        <div class="profile-modal" id="profileModal">
+            <div class="profile-modal-header">
+                <h3>My Profile</h3>
+                <button id="closeProfileModal" class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="profile-user-info">
+                <div class="user-avatar-lg"><i class="fa-solid fa-user"></i></div>
+                <div>
+                    <h4 id="displayUserName">Your account</h4>
+                    <p id="displayUserPhone"></p>
+                    <span class="wallet-badge">Mithila Go account</span>
+                </div>
+            </div>
+            <form class="profile-edit" id="profileEditForm">
+                <div class="input-group">
+                    <label class="input-label" for="profileName">FULL NAME</label>
+                    <input id="profileName" name="name" maxlength="100" required>
+                </div>
+                <div class="input-group">
+                    <label class="input-label" for="profilePhone">PHONE</label>
+                    <input id="profilePhone" name="phone" type="tel" inputmode="numeric" pattern="(?:\+91\s?)?(?:[0-9]|\s|\(|\)|\p{Dash}){10,15}" required>
+                </div>
+                <div id="driverProfileFields" hidden>
+                    <div class="input-group">
+                        <label class="input-label" for="profileVehicleType">VEHICLE TYPE</label>
+                        <select id="profileVehicleType">
+                            <option value="Bike">Bike</option>
+                            <option value="Auto">Auto</option>
+                            <option value="Mithila E-Rickshaw">Mithila E-Rickshaw</option>
+                            <option value="Mithila Mini">Mithila Mini (Small Car)</option>
+                            <option value="Mithila SUV">Mithila SUV</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                        <select id="profileOtherVehicleType" aria-label="Choose a supported vehicle" hidden>
+                            <option value="">Choose an available vehicle</option>
+                            <option>Bike</option>
+                            <option>Auto</option>
+                            <option>Mithila E-Rickshaw</option>
+                            <option>Mithila Mini</option>
+                            <option>Mithila SUV</option>
+                        </select>
+                        <p id="profileVehicleStatus" class="ride-status-copy" hidden></p>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="profileVehiclePlate">VEHICLE PLATE / ID</label>
+                        <input id="profileVehiclePlate" maxlength="20" placeholder="e.g. BR-07-AB-1234">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="profileAadhaar">AADHAAR NUMBER</label>
+                        <input id="profileAadhaar" type="password" inputmode="numeric" pattern="[0-9]{12}" maxlength="12" autocomplete="off" placeholder="Enter 12 digits to add or replace">
+                        <button class="password-toggle" type="button" data-toggle-password="profileAadhaar" aria-label="Show Aadhaar number">Show</button>
+                    </div>
+                    <p class="privacy-note">Only a keyed fingerprint and the last four digits are saved. Never share your full Aadhaar number.</p>
+                </div>
+                <details>
+                    <summary>Change password (optional)</summary>
+                    <p class="privacy-note">Leave these fields empty to keep your current password.</p>
+                    <div class="input-group">
+                        <label class="input-label" for="profileCurrentPassword">CURRENT PASSWORD</label>
+                        <input id="profileCurrentPassword" type="password" autocomplete="current-password">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="profileNewPassword">NEW PASSWORD</label>
+                        <input id="profileNewPassword" type="password" minlength="8" maxlength="72" autocomplete="new-password">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="profileConfirmPassword">CONFIRM NEW PASSWORD</label>
+                        <input id="profileConfirmPassword" type="password" minlength="8" maxlength="72" autocomplete="new-password">
+                    </div>
+                </details>
+                <button class="btn-primary" id="saveProfileBtn" type="submit">Save profile</button>
+            </form>
+            <div class="profile-menu-links">
+                <button class="p-link-item" id="inviteFriendsBtn" type="button">
+                    <i class="fa-solid fa-gift" style="color:#ff5722;"></i> Invite Friends & Earn
+                </button>
+                <div class="p-link-item" id="userLogoutLink" style="color: #d84315;">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-modal-overlay" id="complaintModal" role="dialog" aria-modal="true" aria-labelledby="complaintTitle">
+            <form class="custom-modal-card" id="complaintForm">
+                <h3 id="complaintTitle">Report a ride issue</h3>
+                <p>Your report is linked to this ride and visible to your account.</p>
+                <label class="input-label" for="complaintCategory">ISSUE TYPE</label>
+                <select id="complaintCategory" required>
+                    <option value="">Choose an issue</option>
+                    <option>Route or safety concern</option>
+                    <option>Vehicle cleanliness or condition</option>
+                    <option>Driver or passenger behavior</option>
+                    <option>Fare or payment dispute</option>
+                    <option>Other</option>
+                </select>
+                <label class="input-label" for="complaintDetails">WHAT HAPPENED?</label>
+                <textarea id="complaintDetails" maxlength="2000" rows="5" required></textarea>
+                <div class="action-buttons-flex">
+                    <button class="btn-outline" id="cancelComplaintBtn" type="button">Cancel</button>
+                    <button class="btn-primary" type="submit">Send report</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tabular Schedule For Later Modal -->
+        <div class="custom-modal-overlay" id="scheduleModal" role="dialog" aria-modal="true" aria-labelledby="scheduleTitle">
+            <div class="custom-modal-card schedule-card">
+                <h3 id="scheduleTitle">Schedule Future Ride</h3>
+                <p>Choose a date and time. Past dates and times are unavailable.</p>
+                <div class="schedule-fields">
+                    <div class="input-group">
+                        <label class="input-label" for="scheduleDate">DATE</label>
+                        <input type="date" id="scheduleDate" required>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="scheduleTime">TIME</label>
+                        <input type="time" id="scheduleTime" required>
+                    </div>
+                </div>
+                <div class="action-buttons-flex">
+                    <button class="btn-outline" id="cancelScheduleBtn" type="button">Cancel</button>
+                    <button class="btn-primary" id="confirmScheduleBtn" type="button">Confirm Schedule</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Location Pin Refresher -->
+        <button class="assistant-coming-soon" type="button" aria-label="AI Assistant coming soon" hidden>
+            <i class="fa-solid fa-sparkles" aria-hidden="true"></i><span><strong>AI Assistant</strong><small>Coming Soon</small></span>
+        </button>
+    </div>
+
+    <div class="app-toast" id="appToast" role="status" aria-live="polite"></div>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js?v=20261101-3"></script>
+</body>
+</html>
