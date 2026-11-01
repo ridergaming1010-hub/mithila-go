@@ -1,6 +1,7 @@
 HELP.md
 target/
 data/
+.m2-local/
 .env
 .env.*
 !.env.example
