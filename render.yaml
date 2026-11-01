@@ -9,6 +9,12 @@ services:
       - key: COOKIE_SECURE
         value: "true"
       - key: DB_URL
-        value: jdbc:h2:file:./data/mithila-go;DB_CLOSE_ON_EXIT=FALSE;WRITE_DELAY=0
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: MITHILA_AADHAAR_HMAC_KEY
+        sync: false
       - key: JPA_DDL_AUTO
         value: update

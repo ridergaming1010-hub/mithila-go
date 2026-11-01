@@ -2643,6 +2643,19 @@ select:focus-visible,
 @media (max-width: 720px) {
     html, body { max-width: 100%; overflow-x: hidden; }
 }
+#driverDashboardView {
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+#driverDashboardView .driver-rides-list {
+    flex: 0 0 auto;
+    min-height: auto;
+    overflow: visible;
+}
+
 @media (max-width: 760px) {
     body.driver-portal-active {
         align-items: stretch;
@@ -2666,9 +2679,6 @@ select:focus-visible,
     }
 
     .driver-portal-active #driverDashboardView .driver-rides-list {
-        flex: 0 0 auto;
-        min-height: auto;
-        overflow: visible;
         padding-bottom: max(20px, env(safe-area-inset-bottom));
     }
 }
